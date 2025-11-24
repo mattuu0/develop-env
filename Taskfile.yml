@@ -24,10 +24,25 @@ tasks:
   # カギを生成するコマンド
   genkey:
     cmds:
-      - cmd: docker run --rm -it -v .\\openssl\\jwtKeys:/jwtkeys -v .\\nginx\\keys:/sslkeys {{.Build_Image}}
+      - cmd: docker run --rm -it -v .\openssl\jwtKeys:/jwtkeys -v .\nginx\keys:/sslkeys {{.Build_Image}}
         platforms: [windows]
       - cmd: docker run --rm -it -v ./openssl/jwtKeys:/jwtkeys -v ./nginx/keys:/sslkeys {{.Build_Image}}
         platforms: [linux,darwin]
     vars:
       Build_Image:
         sh: docker build -q ./openssl
+
+  # 全サービスのログを表示
+  logs:
+    cmds:
+      - docker compose logs -f
+
+  # フロントエンドのログを表示
+  logs:frontend:
+    cmds:
+      - docker compose logs -f frontend
+
+  # バックエンドのログを表示
+  logs:backend:
+    cmds:
+      - docker compose logs -f app
