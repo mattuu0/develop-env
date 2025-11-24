@@ -43,6 +43,10 @@ services:
     # ディレクトリ共有
     volumes:
       - ./frontend:/app
+      - /app/node_modules
+    
+    # ttyを有効化
+    tty: true
 
     restart: always
 
