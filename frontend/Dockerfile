@@ -13,7 +13,7 @@ RUN npm run build
 
 FROM ghcr.io/static-web-server/static-web-server:2 as release
 
-COPY --from=build-env /app/build/client /public/ui
+COPY --from=build-env /app/dist /public/ui
 
 ENV SERVER_PORT=3000
 ENV SERVER_LOG_LEVEL=info
