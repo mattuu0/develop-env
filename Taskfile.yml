@@ -38,7 +38,7 @@ tasks:
   # カギを生成するコマンド
   genkey:
     cmds:
-      - cmd: docker run --rm -it -v .\openssl\jwtKeys:/jwtkeys -v .\nginx\keys:/sslkeys {{.Build_Image}}
+      - cmd: docker run --rm -it -v .\\openssl\\jwtKeys:/jwtkeys -v .\\nginx\\keys:/sslkeys {{.Build_Image}}
         platforms: [windows]
       - cmd: docker run --rm -it -v ./openssl/jwtKeys:/jwtkeys -v ./nginx/keys:/sslkeys {{.Build_Image}}
         platforms: [linux,darwin]
