@@ -59,6 +59,12 @@ tasks:
       Build_Image:
         sh: docker build -q ./config
 
+  # release ビルドを行うコマンド
+  release:
+    cmds:
+      - echo "releaseビルドで起動します"
+      - cmd: docker compose -f docker-compose-build.yaml up -d --remove-orphans --build
+
   # 全サービスのログを表示
   logs:
     cmds:
